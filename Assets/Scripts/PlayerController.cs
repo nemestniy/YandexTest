@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 movementDirection = Vector3.zero;
     private bool isStarted = false;
 
-    public void Start()
+    public void Initialize()
     {
         isStarted = true;        
     }

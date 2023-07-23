@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletonMonoBehaviour<GameManager>
 {
-    public event Action CounterUpdated;
-    public event Action GameWasStarted;
+    public event Action CounterWasUpdated;
+    public UnityEvent GameWasStarted;
 
     public int Count = 0;
 
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         {
             player.PointCollision += Player_PointCollision;
             player.ObstacleCollision += Player_ObstacleCollision;
-            player.Start();
+            player.Initialize();
         }
 
         for(int i = 0; i < controllers.Length; i++)
@@ -48,13 +49,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Player_ObstacleCollision()
+    private void Player_PointCollision()
     {
         Count++;
-        CounterUpdated?.Invoke();
+        CounterWasUpdated?.Invoke();
     }
 
-    private void Player_PointCollision()
+    private void Player_ObstacleCollision()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

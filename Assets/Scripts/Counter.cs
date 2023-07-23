@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Counter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private TextMeshProUGUI text;
+
+    public GameManager test;
+
+    private void Update()
     {
-        
+        test = GameManager.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        text = GetComponent<TextMeshProUGUI>();
+        text.text = GameManager.Instance.Count.ToString();
+        GameManager.Instance.CounterWasUpdated += Instance_CounterWasUpdated;
+    }
+
+    private void Instance_CounterWasUpdated()
+    {
+        text.text = GameManager.Instance.Count.ToString();
     }
 }

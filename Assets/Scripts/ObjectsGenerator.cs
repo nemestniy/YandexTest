@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ObjectsGenerator : MonoBehaviour, IController
 {
+    public event Action UpdatedGeneration;
+
     public Transform Target;
 
     [Space(10)]
@@ -14,8 +17,9 @@ public class ObjectsGenerator : MonoBehaviour, IController
     public float OffsetSpawning = 3.5f;
 
     private int currentGeneration;
+    protected int objectsCountForGenerating = 1;
 
-    public void Initialize()
+    public virtual void Initialize()
     {
         if (!Target)
         {
@@ -31,10 +35,11 @@ public class ObjectsGenerator : MonoBehaviour, IController
     {
         while (true)
         {
-            if (currentGeneration < (int)Target.position.x / 15)
+            if (currentGeneration < (int)Target.position.x / (int)GeneratingStep)
             {
                 currentGeneration++;
-                GenerateObjects(1);
+                UpdatedGeneration?.Invoke();
+                GenerateObjects(objectsCountForGenerating);
             }
             yield return new WaitForEndOfFrame();
         }
