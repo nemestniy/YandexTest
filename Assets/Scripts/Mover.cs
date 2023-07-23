@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class Mover : MonoBehaviour, IController
 {
     public float Speed = 1.0f;
+    private bool isInitialized = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
-
+        isInitialized = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * Speed * Time.deltaTime);
+        if (isInitialized)
+        {
+            transform.Translate(Vector3.right * Speed * Time.deltaTime);
+        }
     }
 }

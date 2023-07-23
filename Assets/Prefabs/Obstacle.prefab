@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8641812856170851663}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,4 +146,3 @@ MonoBehaviour:
   LifeTime: 5
   MaxGlobalOffset: 3
   startHeight: 8.76
-  test: 0.61688423

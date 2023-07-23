@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2815387025726673867}
   m_Layer: 0
   m_Name: MagneticZone
-  m_TagString: Untagged
+  m_TagString: Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,9 +78,10 @@ GameObject:
   - component: {fileID: 7074855295996774265}
   - component: {fileID: 9119168490518966267}
   - component: {fileID: 4088214940967556050}
+  - component: {fileID: -5725945109478959240}
   m_Layer: 0
   m_Name: Point
-  m_TagString: Untagged
+  m_TagString: Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +100,7 @@ Transform:
   m_Children:
   - {fileID: 5906304267876466655}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9119168490518966267
 SpriteRenderer:
@@ -198,3 +199,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5725945109478959240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4562810505801344370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a185aa64ce96a1498af0865adae7599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+  TagTarget: Player
+  LifeTime: 5
